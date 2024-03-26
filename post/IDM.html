@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDM-Activation-Script-Zh 说明文档</title>
+    <link rel="stylesheet" href="../css/index_all.css">
+</head>
+
+<body>
+    <a href="../index.html" class="home-link">返回主页</a>
+    <a href="../赞助码.png" class="home-link">赞助</a>
+    <script src="../js/posts_js/dynamic_home_links.js"></script>
+    <div class="container">
+        <h1>IDM-Activation-Script-Zh</h1>
+        <h2>说明文档</h2>
+        <div class="section">
+            <h2>下载</h2>
+            <li>从<a href="https://raw.githubusercontent.com/yhgzs-111/IDM-Activation-Script-ZH/main/IAS(%E6%B1%89%E5%8C%96).cmd" class="link">Github</a>下载</li>
+        </div>
+        <div class="section">
+            <h1>汉化版已知问题</h1>
+            <p>选项2（激活）汉化后会出错，求大佬帮忙提交PRs</p>
+        </div>
+        <div class="section">
+            <h2>IDM激活脚本中文汉化版</h2>
+            <p>一个用于激活和重置<a href="https://www.internetdownloadmanager.com/" class="link">Internet Download Manager</a>试用版的开源工具</p>
+        </div>
+        <div class="section">
+            <h2>特点</h2>
+            <ul>
+                <li>使用注册表密钥锁定方法激活IDM</li>
+                <li>激活后即使安装IDM更新也会保持有效</li>
+                <li>IDM试用重置</li>
+                <li>完全开源</li>
+                <li>基于透明的批处理脚本</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>下载 / 如何使用？</h2>
+            <ol>
+                <li>首先全新安装<a href="https://www.internetdownloadmanager.com/" class="link">Internet Download Manager</a>，确保删除/卸载以前的破解/补丁（如果有的话）</li>
+                <li>然后按照以下步骤激活：</li>
+            </ol>
+            <div class="section">
+                <h3>方法1 - Github Releases</h3>
+                <p>（推荐，通过此方法下载的程序为汉化版，更适合中国宝宝体制👶）</p>
+                <ol>
+                    <li>从<a href="https://raw.githubusercontent.com/yhgzs-111/IDM-Activation-Script-ZH/main/IAS(%E6%B1%89%E5%8C%96).cmd" class="link">GitHub</a>下载cmd文件</li>
+                    <li>运行名为<code>IAS.cmd</code>的文件</li>
+                    <li>您将看到多个选项，请按照屏幕上的说明操作</li>
+                </ol>
+            </div>
+            <div class="section">
+                <h3>方法2 - PowerShell</h3>
+                <p>（通过此方法下载的为原版，即英文版）</p>
+                <ol>
+                    <li>在Windows 8.1/10/11上，右键单击Windows开始菜单，选择PowerShell或终端（不是CMD）</li>
+                    <li>复制粘贴下面的代码，然后按Enter键</li>
+                    <li><code>irm https://massgrave.dev/ias | iex</code></li>
+                    <li>你将看到激活选项，请按照屏幕上的说明操作</li>
+                </ol>
+            </div>
+        </div>
+        <div class="section">
+            <h2>一些信息</h2>
+            <div class="section">
+                <h3>激活</h3>
+                <ul>
+                    <li>该脚本应用注册表锁定方法激活Internet Download Manager（IDM）</li>
+                    <li>此方法要求在激活时连接到互联网</li>
+                    <li>可以直接安装IDM更新，无需再次激活</li>
+                    <li>激活后，如果在某些情况下，IDM开始显示激活提示屏幕，只需再次运行激活选项，而不使用重置选项</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h3>重置IDM激活 / 试用</h3>
+                <ul>
+                    <li>Internet Download Manager提供30天的试用期，您可以使用“开始激活 / 试用”选项在需要时重置此激活 / 试用期</li>
+                    <li>如果IDM报告虚假序列号和其他类似错误，此选项也可用于恢复状态</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h3>操作系统要求</h3>
+                <ul>
+                    <li>该项目支持Windows 7/8/8.1/10/11及其服务器等效版本</li>
+                    <li>在Windows 8及更高版本上支持使用PowerShell方法运行IAS</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h3>高级信息</h3>
+                <ul>
+                    <li>要在IDM许可信息中添加自定义名称，请编辑脚本文件中的第29行</li>
+                    <li>要在无人值守模式下激活，请使用<code>/act</code>参数运行脚本</li>
+                    <li>要在无人值守模式下重置，请使用<code>/res</code>参数运行脚本</li>
+                </ul>
+            </div>
+        </div>
+        <div class="section">
+            <h2>工作原理</h2>
+            <p>IDM在各种注册表键中存储与试用和激活相关的数据。其中一些键已锁定以防止篡改，并以一种模式存储数据，以跟踪虚假序列号问题和剩余的试用天数。为了激活它，这里的脚本只需通过在IDM中触发一些下载来生成这些注册表键，识别这些注册表键，并将其锁定，以便IDM无法编辑和查看它们。这样，IDM就无法显示使用虚假序列号激活的警告。</p>
+        </div>
+        <div class="section">
+            <h2>故障排除</h2>
+            <p>浏览器集成修复：<a href="https://www.internetdownloadmanager.com/register/new_faq/bi9.html" class="link">Chrome</a> - <a href="https://www.internetdownloadmanager.com/register/new_faq/bi4.html" class="link">Firefox</a></p>
+        </div>
+        <div class="section">
+            <h2>截图</h2>
+            <img src="https://github.com/yhgzs-111/IDM-Activation-Script-ZH/assets/77568569/6fe8bfdb-a58d-42d3-b0bf-4bf197d9cb2d" alt="image">
+            <img src="https://github.com/yhgzs-111/IDM-Activation-Script-ZH/assets/77568569/00ab6e33-c436-42bd-a025-341e4ddede5c" alt="image">
+        </div>
+        <div class="section">
+            <h2>鸣谢</h2>
+            <table>
+                <tr>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Dukun Cabul</td>
+                    <td>IDM试用重置和激活逻辑的原始研究者，为这些方法创建了一个Autoit工具，名为<a href="https://nsaneforums.com/topic/371047-discussion-internet-download-manager-fixes/page/8/#comment-1632062" class="link">IDM-AIO_2020_Final</a></td>
+                </tr>
+                <tr>
+                    <td>AveYo aka BAU</td>
+                    <td>提供了简洁、高效的相关注册表代码片段</td>
+                </tr>
+                <tr>
+                    <td><a href="https://github.com/abbodi1406" class="link">abbodi1406</a></td>
+                    <td>在编码方面提供帮助</td>
+                </tr>
+                <tr>
+                    <td>WindowsAddict</td>
+                    <td>脚本作者</td>
+                </tr>
+                <tr>
+                    <td><a href="https://github.com/yhgzs-111" class="link">NNNH</a></td>
+                    <td>中文汉化</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <a href="https://github.com/yhgzs-111" target="_blank" class="github-icon">
+        <svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true" class="octicon octicon-mark-github v-align-middle color-fg-default">
+            <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.20-.82-2.20-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.20-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+        </svg>
+    </a>
+
+    <a href="https://t.me/iidjnejdj" target="_blank" class="telegram-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 240.1 240.1">
+            <linearGradient id="Oval_1_" gradientUnits="userSpaceOnUse" x1="-838.041" y1="660.581" x2="-838.041" y2="660.3427" gradientTransform="matrix(1000 0 0 -1000 838161 660581)">
+                <stop offset="0" style="stop-color:#2AABEE"/>
+                <stop offset="1" style="stop-color:#229ED9"/>
+            </linearGradient>
+            <circle fill-rule="evenodd" clip-rule="evenodd" fill="url(#Oval_1_)" cx="120.1" cy="120.1" r="120.1"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M54.3,118.8c35-15.2,58.3-25.3,70-30.2 c33.3-13.9,40.3-16.3,44.8-16.4c1,0,3.2,0.2,4.7,1.4c1.2,1,1.5,2.3,1.7,3.3s0.4,3.1,0.2,4.7c-1.8,19-9.6,65.1-13.6,86.3 c-1.7,9-5,12-8.2,12.3c-7,0.6-12.3-4.6-19-9c-10.6-6.9-16.5-11.2-26.8-18c-11.9-7.8-4.2-12.1,2.6-19.1c1.8-1.8,32.5-29.8,33.1-32.3 c0.1-0.3,0.1-1.5-0.6-2.1c-0.7-0.6-1.7-0.4-2.5-0.2c-1.1,0.2-17.9,11.4-50.6,33.5c-4.8,3.3-9.1,4.9-13,4.8 c-4.3-0.1-12.5-2.4-18.7-4.4c-7.5-2.4-13.5-3.7-13-7.9C45.7,123.3,48.7,121.1,54.3,118.8z"/>
+        </svg>
+    </a>
+</body>
+
+</html>
