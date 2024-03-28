@@ -18,7 +18,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('https://tu.ltyuanfang.cn/api/fengjing.php') center/cover no-repeat;
+    background: url('https://bing.img.run/rand_uhd.php') center/cover no-repeat;
     z-index: -1;
     filter: blur(10px);
 }
